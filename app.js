@@ -85,6 +85,15 @@ const server = http.createServer((req,res) => {
             res.writeHead(200, { 'content-type': 'image/jpg'});
             res.end(content)
         });
+    }   else if (req.url === '/?subject=sdfghjkl%3B&msg=**&fullname=**&Phone=**&submit=submit'){
+        // res.writeHead(200, { 'content-type': 'text/html'});
+        // res.end('<h2>This is about</h2>')
+
+        fs.readFile(path.join(__dirname,  'mainforPorfolio.js'),(err,content) => {
+            if(err) throw err;
+            res.writeHead(200, { 'content-type': 'application/json'});
+            res.end(content)
+        });
     }  
     
     
